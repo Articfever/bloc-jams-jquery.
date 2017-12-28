@@ -13,7 +13,7 @@ class Player {
   getTime() {
     return this.soundObject.getTime();
   }
-  
+
   playPause (song = this.currentlyPlaying) {
     if (this.currentlyPlaying !== song) {
       // Stop the currently playing sound file (even if nothing is playing)
@@ -37,12 +37,12 @@ class Player {
       this.currentlyPlaying.element.removeClass('playing').addClass('paused');
     }
   }
-  
+
   skipTo (percent) {
     if (this.playState !== 'playing') { return }
     this.soundObject.setTime( (percent / 100) * this.soundObject.getDuration() );
   }
-  
+
   setVolume (percent) {
     this.volume = percent;
     this.soundObject.setVolume(percent);
@@ -50,4 +50,3 @@ class Player {
 }
 
 const player = new Player();
-
