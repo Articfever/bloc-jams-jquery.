@@ -20,7 +20,7 @@ class Player {
       this.soundObject.stop();
       // Clear classes on the song that's currently playing
       this.currentlyPlaying.element.removeClass('playing paused');
-      
+
       // Update our currentlyPlaying and playState properties
       this.currentlyPlaying = song;
       this.playState = 'stopped';
@@ -50,3 +50,5 @@ class Player {
 }
 
 const player = new Player();
+
+var = codeThingieSoItNewCommit
