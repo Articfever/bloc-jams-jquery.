@@ -48,7 +48,3 @@ class Player {
     this.soundObject.setVolume(percent);
   }
 }
-
-const player = new Player();
-
-var = codeThingieSoItNewCommit
