@@ -34,7 +34,7 @@
     if (currentlyPlayingSongNumber !== songNumber) {
         setSong(songNumber);
         currentSoundFile.play();
-        updateSeekBarWhileSongPlays();\
+        updateSeekBarWhileSongPlays();
 
     var $volumeFill = $('.volume .fill');
             var $volumeThumb = $('.volume .thumb');
