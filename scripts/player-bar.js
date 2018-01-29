@@ -60,4 +60,4 @@
           setCurrentTimeInPlayerBar(this.getTime());
 
 
-}
+)}
