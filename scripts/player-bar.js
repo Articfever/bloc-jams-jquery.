@@ -49,7 +49,8 @@
             } else {
                 $(this).html(playButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPlayButton);
-                currentSoundFile.pause();
+                currentSoundFile.pause()
+              };
 
     var updateSeekBarWhileSongPlays = function() {
         if (currentSoundFile) {
@@ -58,6 +59,6 @@
           var $seekBar = $('.seek-control .seek-bar');
           updateSeekPercentage($seekBar, seekBarFillRatio);
           setCurrentTimeInPlayerBar(this.getTime());
-          });
-        }
-    };
+
+        )}
+    }
