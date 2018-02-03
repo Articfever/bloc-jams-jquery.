@@ -1,3 +1,8 @@
+var setSong = function(songNumber) {
+    currentlyPlayingSongNumber = parseInt(songNumber);
+    currentSongFromAlbum = currentAlbum.songs[songNumber -1];
+};
+
 {
     $('button#play-pause').on('click', function () {
       player.playPause();
@@ -18,6 +23,7 @@
       const prevSongIndex = currentSongIndex - 1;
       if (prevSongIdex <= album.songs.length) { return; }
     });
+
     $('time-control input').on('input', function (event) {
       player.skipTo(event.target.value);
     });
@@ -31,16 +37,11 @@
       $('#time-control input').val(percent);
     }, 1000);
 
-    if (currentlyPlayingSongNumber !== songNumber) {
+    if ( currentlyPlayingSongNumber !== songNumber) {
         setSong(songNumber);
         currentSoundFile.play();
         updateSeekBarWhileSongPlays();
-
-    var $volumeFill = $('.volume .fill');
-            var $volumeThumb = $('.volume .thumb');
-            $volumeFill.width(currentVolume + '%');
-            $volumeThumb.css({left: currentVolume + '%'});
-        } else if (currentlyPlayingSongNumber === songNumber) {
+        } else if (currentlyPlayingSongNumber === songNumber)
             if (currentSoundFile.isPaused()) {
                 $(this).html(pauseButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPauseButton);
@@ -55,10 +56,17 @@
     var updateSeekBarWhileSongPlays = function() {
         if (currentSoundFile) {
           currentSoundFile.bind('timeupdate', function(event) {
-          var seekBarFillRatio = this.getTime() / this.getDuration();
+          var seekBarFillRatio = currentTime / songLength;
+          var currentTime = this.getTime();
+          var songLength = this.getDuration();
           var $seekBar = $('.seek-control .seek-bar');
           updateSeekPercentage($seekBar, seekBarFillRatio);
-          setCurrentTimeInPlayerBar(this.getTime());
-
-        )}
+          setCurrentTimeInPlayerBar(filterTimeCode(currentTime));
+          })
+        }
     }
+    var $volumeFill = $('.volume .fill');
+      var $volumeThumb = $('.volume .thumb');
+      $volumeFill.width(currentVolume + '%');
+      $volumeThumb.css({left: currentVolume + '%'});
+}
