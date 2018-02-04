@@ -36,7 +36,7 @@ var setSong = function(songNumber) {
       $('#time-control .current-time').text( currentTime );
       $('#time-control input').val(percent);
     }, 1000);
-
+    function currentlyPlayingSongNumber
     if ( currentlyPlayingSongNumber !== songNumber) {
         setSong(songNumber);
         currentSoundFile.play();
