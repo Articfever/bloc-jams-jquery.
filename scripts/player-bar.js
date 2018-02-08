@@ -1,5 +1,4 @@
 var setSong = function(songNumber) {
-    currentlyPlayingSongNumber = parseInt(songNumber);
     currentSongFromAlbum = currentAlbum.songs[songNumber -1];
 };
 
@@ -37,7 +36,7 @@ var setSong = function(songNumber) {
       $('#time-control input').val(percent);
     }, 1000);
     function currentlyPlayingSongNumber
-    if ( currentlyPlayingSongNumber !== songNumber) {
+    ( currentlyPlayingSongNumber !== songNumber) {
         setSong(songNumber);
         currentSoundFile.play();
         updateSeekBarWhileSongPlays();
