@@ -4,7 +4,7 @@
   $('button#play-pause').click( function () {
     player.playPause();
     $(this).attr('playState', player.playState);
-//    $('#time-control .total-time').text( player.prettyTime(player.getDuration()) );
+    $('#time-control .total-time').text( player.prettyTime(player.getDuration()) );
 });
 
     const currentSongIndex = function(currentSong){
