@@ -1,4 +1,4 @@
-class player {
+class Player {
   constructor () {
     this.currentlyPlaying = album.songs[0];
     this.playState = 'stopped';
@@ -36,6 +36,21 @@ class player {
       this.playState = 'paused';
       this.currentlyPlaying.element.removeClass('playing').addClass('paused');
     }
+    $('#time-control .total-time').text(this.currentlyPlaying['duration']);
+  }
+
+
+  prettyTime (timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = ( "00" + (Math.floor(timeInSeconds % 60))).substr(-2);
+
+    if(seconds.length < 2){
+      seconds = '0' + seconds;
+    }
+    if(seconds.length > 2){
+      seconds = seconds[0] + seconds[1];
+    }
+    return minutes + ':' + seconds;
   }
 
   skipTo (percent) {
@@ -47,6 +62,8 @@ class player {
     this.volume = percent;
     this.soundObject.setVolume(percent);
   }
-}
 
-//const player = new Player();
+
+
+}
+const player = new Player();
